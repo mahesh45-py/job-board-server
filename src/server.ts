@@ -23,11 +23,15 @@ connectToDatabase(ATLAS_URI).then(()=>{
 
     app.use("/jobs",jobRouter);
     
+    app.get("/", (req, res) => {
+        res.send("Welcome to the Job API");
+    });
+    
+    
     //start the Express Server
     app.listen(5200,()=>{
         console.log("Server started running on http://localhost:5200")
     })
-    module.exports = app;
 }).catch((err)=>{
     console.error(err)
 })
